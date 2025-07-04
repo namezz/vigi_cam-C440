@@ -1,5 +1,5 @@
-from func.vigiapi4cam import *
-from func.audio2vigiFormat import convert_to_g711
+from vigiapi4cam import *
+from audio2vigiFormat import convert_to_g711
 
 if __name__ == "__main__":
 

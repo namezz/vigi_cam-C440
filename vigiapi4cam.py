@@ -23,7 +23,7 @@ from urllib import parse  # URL解析功能
 import urllib3  # HTTP客戶端庫
 
 # 導入自定義的攝影機串流模組
-from func.cam_stream import CameraStream
+from cam_stream import CameraStream
 
 # 加密相關功能
 from cryptography.hazmat.primitives.asymmetric import padding  # RSA加密填充

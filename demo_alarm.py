@@ -1,4 +1,4 @@
-from func.vigiapi4cam import *
+from vigiapi4cam import *
 import time
 import threading
 

@@ -1,6 +1,5 @@
 # VIGI 攝影機控制專案
 
-
 專案說明：
 本專案為一個用於控制 TP-Link VIGI 攝影機的 Python 專案，提供警報管理、音訊處理和串流功能。
 
@@ -13,16 +12,27 @@
 ## 專案結構
 
 ```
-├── vigi_cam(C440)/          # 主要攝影機控制模組
-│   ├── demo_alarm.py        # 警報功能演示
-│   ├── demo_audio_manage.py # 音訊管理演示
-│   └── func/               # 核心功能模組
-│       ├── vigiapi4cam.py  # VIGI API 控制類別
-│       ├── cam_stream.py   # 攝影機串流模組
-│       └── audio2vigiFormat.py # 音訊格式轉換
-├── sound_api/              # 音訊 API 相關工具
-├── audio/                  # 音訊檔案
-└── output.g711            # G.711 格式音訊輸出
+├── vigiapi4cam.py          # VIGI API 控制類別
+├── cam_stream.py           # 攝影機串流模組
+├── audio2vigiFormat.py     # 音訊格式轉換
+├── demo_alarm.py           # 警報功能演示
+├── demo_audio_manage.py    # 音訊管理演示
+├── requirements.txt        # Python 套件相依清單
+├── README.md              # 專案說明文件
+├── IPCAM_RTSP.txt         # RTSP 連線資訊
+├── VIGI C440 2.0_config.bin # 攝影機設定檔
+├── audio/                 # 音訊檔案資料夾
+│   ├── alert_play.wav     # 範例警報聲音
+│   ├── output_for_vigi.g711 # 轉換後的音檔
+│   ├── output.g711        # 轉換輸出檔案
+│   ├── t.wav              # 測試音檔
+│   └── g711/              # G.711 格式音檔
+│       ├── chinese_alarm_20250704_082943.g711
+│       └── chinese_alarm_20250704_101352.g711
+├── api_doc(useless)/      # API 文件（參考用）
+│   ├── TP-LINK商用云平台开放接口文档.pdf
+│   └── VIGI-API.pdf
+└── __pycache__/           # Python 快取檔案
 ```
 
 ## 主要功能
@@ -52,7 +62,7 @@
 ## 快速開始
 
 ### 設定攝影機資訊
-在 [`vigiapi4cam.py`](vigi_cam(C440)/func/vigiapi4cam.py) 中修改：
+在 [`vigiapi4cam.py`](vigiapi4cam.py) 中修改：
 ```python
 IP_ADDRESS = '192.168.0.60'  # 您的攝影機 IP
 USERNAME = 'admin'           # 使用者名稱
@@ -84,7 +94,7 @@ python demo_audio_manage.py
 
 ### 初始化攝影機連線
 ```python
-from func.vigiapi4cam import VigiApi
+from vigiapi4cam import VigiApi
 
 vigi_cam = VigiApi(IP_ADDRESS, USERNAME, PASSWORD)
 if vigi_cam.authenticate():
@@ -126,17 +136,17 @@ camera_stream.show_live_stream('VIGI Camera Live Stream')
 
 - **輸入格式**: WAV, MP3
 - **輸出格式**: G.711 (A-law/μ-law)
-- **轉換工具**: [`audio2vigiFormat.py`](vigi_cam(C440)/func/audio2vigiFormat.py)
+- **轉換工具**: [`audio2vigiFormat.py`](audio2vigiFormat.py)
 
 ## 檔案說明
 
 | 檔案 | 功能 |
 |------|------|
-| [`vigiapi4cam.py`](vigi_cam(C440)/func/vigiapi4cam.py) | 核心 API 控制類別 |
-| [`cam_stream.py`](vigi_cam(C440)/func/cam_stream.py) | 攝影機串流功能 |
-| [`discover_devinfo.py`](sound_api/discover_devinfo.py) | ONVIF 設備控制 |
-| [`demo_alarm.py`](vigi_cam(C440)/demo_alarm.py) | 警報功能演示腳本 |
-| [`demo_audio_manage.py`](vigi_cam(C440)/demo_audio_manage.py) | 音訊管理演示腳本 |
+| [`vigiapi4cam.py`](vigiapi4cam.py) | 核心 API 控制類別 |
+| [`cam_stream.py`](cam_stream.py) | 攝影機串流功能 |
+| [`audio2vigiFormat.py`](audio2vigiFormat.py) | 音訊格式轉換 |
+| [`demo_alarm.py`](demo_alarm.py) | 警報功能演示腳本 |
+| [`demo_audio_manage.py`](demo_audio_manage.py) | 音訊管理演示腳本 |
 
 ## 注意事項
 

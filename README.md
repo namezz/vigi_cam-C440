@@ -1,13 +1,13 @@
 # VIGI 攝影機控制專案
 
-<!--
+
 專案說明：
 本專案為一個用於控制 TP-Link VIGI 攝影機的 Python 專案，提供警報管理、音訊處理和串流功能。
 
 備註：
 - 請確保已安裝 ffmpeg 以支援音訊檔案轉換，安裝教學可參考：https://vocus.cc/article/64701a2cfd897800014daed0
 - 作業系統為 Windows 時，請使用 requirements.txt 進行套件安裝。
--->
+
 這是一個用於控制 TP-Link VIGI 攝影機的 Python 專案，提供警報管理、音訊處理和串流功能。
 
 ## 專案結構

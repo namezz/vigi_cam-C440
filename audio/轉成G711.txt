@@ -1,0 +1,2 @@
+# 轉成 G.711 A-law 原始檔
+ffmpeg -i input.mp3 -ar 8000 -ac 1 -f alaw output.g711
